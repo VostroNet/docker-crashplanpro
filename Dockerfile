@@ -24,23 +24,16 @@ RUN wget -O- http://download.crashplan.com/installs/linux/install/CrashPlanPRO/C
 
 COPY files/ /
 
-RUN chmod +x /app/crashplan.exp \
-  && sync \
-  && cd /tmp/crashplan/ \
-  && /app/crashplan.exp || exit $?
-
-# Bind the UI port 4243 to the container ip
-#RUN sed -i "s|</servicePeerConfig>|</servicePeerConfig>\n\t<serviceUIConfig>\n\t\t\
-#       <serviceHost>0.0.0.0</serviceHost>\n\t\t<servicePort>4243</servicePort>\n\t\t\
-#       <connectCheck>0</connectCheck>\n\t\t<showFullFilePath>false</showFullFilePath>\n\t\
-# </serviceUIConfig>|g" /usr/local/crashplan/conf/default.service.xml
-
-# Install launchers
 RUN chmod +rx /app/entrypoint.sh /app/crashplan.sh
 
 
+WORKDIR /tmp/crashplan
+COPY crashplan.exp /tmp/crashplan/
+RUN chmod +rx /tmp/crashplan/crashplan.exp
+RUN expect /tmp/crashplan/crashplan.exp
+
 # Remove unneccessary directories
-RUN rm -rf /boot /home /lost+found /media /mnt /run /srv /usr/local/crashplan/log/* /var/cache/apk/*
+RUN rm -rf /boot /home /lost+found /media /mnt /run /srv /usr/local/crashplan/log/* /tmp/crashplan
 
 #########################################
 ##              VOLUMES                ##
