@@ -23,5 +23,6 @@ docker exec crashplan cat /var/lib/crashplan/.ui_info
 
 # firewalld
 firewall-cmd --zone=public --add-port=4243/tcp --permanent
+firewall-cmd --zone=public --add-port=4242/tcp --permanent
 firewall-cmd --reload && systemctl restart docker
  ```
