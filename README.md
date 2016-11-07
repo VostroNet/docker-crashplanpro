@@ -1,5 +1,5 @@
 # rungeict/crashplanpro
-Centos Image of crashplanpro
+Headless Centos Image of Crashplan Pro Client
 
 ## Introduction
 Easily manage all of your account and backup device settings online. For IT professionals, remotely manage most of the CrashPlan PRO for Small Business functions from anywhere. Our simple-to-use desktop tools means anyone can restore lost files without assistance.
@@ -33,22 +33,25 @@ firewall-cmd --reload && systemctl restart docker
  ```
 
 
-## Connecting to Headless Docker Server
-Once you have installed and started your Docker Crashplan Instance you will need to connect to it via a GUI from a remote device to configure.
+## Connecting to Headless Crashplan Pro Client
+Once you have installed and started your Docker Crashplan Instance you will need to connect to it via a GUI from a remote device (Generally a PC) to configure the actual backups.
 
-You will need the information contained in the .ui_info file for your remote GUI device:
+You will need the information contained in the .ui_info file on the headless server and update the file on your PC:
+
+On your server run the following:
 ```
 docker exec crashplan cat /var/lib/crashplan/.ui_info
 ```
 
-On your remote management device update the settings to match:
+Copy the information and then update your PC based on the following format.  Location of .ui_info (below) is dependant on the OS of your PC.
 
-The contents should appear in the following format:
 ```
 <port>,<token>,<ipaddress_of_server>
 ```
 
 Update the file and save.  Once complete, restart the CrashPlan service/daemon on your remote management device and login.  You should now be connected to your Docker Instance of CrashPlan.
+
+
 
 #### Locations Of .ui_info
 
