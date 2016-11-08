@@ -1,6 +1,8 @@
 # rungeict/crashplanpro
 Headless Centos Image of Crashplan Pro Client
 
+[![](https://images.microbadger.com/badges/image/rungeict/crashplanpro.svg)](https://microbadger.com/images/rungeict/crashplanpro) [![Docker Repository on Quay](https://quay.io/repository/rungeict/crashplanpro/status "Docker Repository on Quay")](https://quay.io/repository/rungeict/crashplanpro)
+
 ## Introduction
 Easily manage all of your account and backup device settings online. For IT professionals, remotely manage most of the CrashPlan PRO for Small Business functions from anywhere. Our simple-to-use desktop tools means anyone can restore lost files without assistance.
 
