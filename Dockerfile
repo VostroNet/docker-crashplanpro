@@ -13,7 +13,7 @@ ENV CRASHPLAN_VERSION=4.8.2
 ##         RUN INSTALL SCRIPT          ##
 #########################################
 
-RUN yum install -y bash wget ca-certificates openssl tar expect findutils coreutils procps cpio grep which
+RUN yum install -y bash wget ca-certificates openssl tar expect findutils coreutils procps cpio grep which net-tools
 
 RUN mkdir /tmp/crashplan \
   && mkdir -p /usr/local/crashplan/log/
