@@ -3,7 +3,7 @@ FROM centos
 ##        ENVIRONMENTAL CONFIG         ##
 #########################################
 # Set correct environment variables
-ENV CRASHPLAN_VERSION=4.8.0
+ENV CRASHPLAN_VERSION=4.8.2
 
 # LC_ALL=en_US.UTF-8"     \
 # LANG="en_US.UTF-8"      \
