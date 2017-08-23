@@ -3,7 +3,7 @@ FROM centos
 ##        ENVIRONMENTAL CONFIG         ##
 #########################################
 # Set correct environment variables
-ENV CRASHPLAN_VERSION=4.8.2
+ENV CRASHPLAN_VERSION=4.9.0_1436674888490_33
 
 # LC_ALL=en_US.UTF-8"     \
 # LANG="en_US.UTF-8"      \
@@ -19,7 +19,7 @@ RUN mkdir /tmp/crashplan \
   && mkdir -p /usr/local/crashplan/log/
 
 
-RUN wget -O- http://download.crashplan.com/installs/linux/install/CrashPlanPRO/CrashPlanPRO_${CRASHPLAN_VERSION}_Linux.tgz \
+RUN wget -O- https://web-eam-msp.crashplanpro.com/client/installers/CrashPlanPRO_${CRASHPLAN_VERSION}_Linux.tgz \
 	| tar -xz --strip-components=1 -C /tmp/crashplan
 
 COPY files/ /
